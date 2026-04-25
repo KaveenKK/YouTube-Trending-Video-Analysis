@@ -24,14 +24,8 @@ After deduplication (keeping one row per video at peak engagement), the working 
 youtube-trending-analysis/
 │
 ├── README.md
-├── youtube_trending_eda_ml.ipynb
+├── youtube_video_analysis.ipynb
 ├── requirements.txt
-└── images/
-    ├── category_counts.png
-    ├── model_comparison.png
-    ├── shap_summary.png
-    ├── shap_waterfall.png
-    └── tfidf_importance.png
 ```
 
 ---
