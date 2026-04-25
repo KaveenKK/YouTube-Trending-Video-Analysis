@@ -54,7 +54,6 @@ Framed this as a regression problem on log(views) to handle the heavy skew. Comp
 
 XGBoost came out on top. The R² of 0.38 is honestly what you'd expect here - view counts on YouTube are genuinely noisy and influenced by a lot of things the metadata doesn't capture (thumbnails, the algorithm, promotion spend). Getting to 0.38 with just metadata is reasonable.
 
-![Model Comparison](images/model_comparison.png)
 
 ### 4. Classification — Viral vs Non-Viral
 Turned it into a binary classification problem: videos in the top 25% of views (above ~1.47M) are labelled viral. Used RandomizedSearchCV to tune the Random Forest and compared against XGBoost.
@@ -71,7 +70,6 @@ Vectorized video titles and tags using TF-IDF (500 features, unigrams + bigrams)
 
 Top predictive terms: "official", "lyric video", "bros", "buzzfeed", "stephen colbert" - mostly signals of established channels and music content, which trend more reliably.
 
-![TF-IDF Top Terms](images/tfidf_importance.png)
 
 ### 6. SHAP Interpretability
 Used SHAP to understand *why* the model makes each prediction, not just *what* it predicts.
@@ -82,11 +80,6 @@ Used SHAP to understand *why* the model makes each prediction, not just *what* i
 - `publish_month` and `tag_count` follow - when you post and how many tags you use both have real impact
 - `is_weekend` and `ratings_disabled` had almost no effect
 
-![SHAP Summary](images/shap_summary.png)
-
-The waterfall plot below breaks down a single video prediction - you can see exactly which features pushed the model toward or away from "viral":
-
-![SHAP Waterfall](images/shap_waterfall.png)
 
 ---
 
